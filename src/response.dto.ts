@@ -1,4 +1,4 @@
-export class ResponseBean<T> {
+export class ResponseDto<T> {
   status: string;
   message: string;
   content: T;
@@ -12,19 +12,19 @@ export class ResponseBean<T> {
   static success<T>(
     content: T,
     message: string = "Success",
-  ): ResponseBean<T> {
-    return new ResponseBean("success", message, content);
+  ): ResponseDto<T> {
+    return new ResponseDto("success", message, content);
   }
 
   static customStatus<T>(
     content: T,
     message: string,
     status: string,
-  ): ResponseBean<T> {
-    return new ResponseBean(status, message, content);
+  ): ResponseDto<T> {
+    return new ResponseDto(status, message, content);
   }
 
-  static error<T>(message: string, content: T = null): ResponseBean<T> {
-    return new ResponseBean("error", message, content);
+  static error<T>(message: string, content: T = null): ResponseDto<T> {
+    return new ResponseDto("error", message, content);
   }
 }

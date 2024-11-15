@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { UserResponseBean } from "../bean/response/UserResponseBean";
+import { UserResponseDto } from "./dto/user-response.dto";
 
 @Injectable()
 export class UserService {
-  getAllUsers(): UserResponseBean[] {
+  getAllUsers(): UserResponseDto[] {
     return [];
   }
 }

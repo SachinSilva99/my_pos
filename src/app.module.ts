@@ -6,7 +6,6 @@ import { UserService } from './user/user.service';
 import { UserModule } from './user/user.module';
 
 @Module({
-  controllers: [UserController],
 
   imports: [
     TypeOrmModule.forRoot({
@@ -16,12 +15,11 @@ import { UserModule } from './user/user.module';
       username: 'root',
       password: '1234',
       database: 'my_pos',
-      entities: [],
+      autoLoadEntities: true,
       synchronize: true,
     }),
     UserModule,
   ],
 
-  providers: [UserService],
 })
 export class AppModule {}

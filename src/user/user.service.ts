@@ -1,9 +1,17 @@
 import { Injectable } from "@nestjs/common";
-import { UserResponseDto } from "./dto/user-response.dto";
+import { Repository } from "typeorm";
+import { InjectRepository } from "@nestjs/typeorm";
+import { UserEntity } from "./entity/user.entity";
 
 @Injectable()
 export class UserService {
-  getAllUsers(): UserResponseDto[] {
-    return [];
+  constructor(
+    @InjectRepository(UserEntity)
+    private userEntityRepository: Repository<UserEntity>,
+  ) {}
+
+
+  async getAllUsers() {
+    return this.userEntityRepository.find();
   }
 }
